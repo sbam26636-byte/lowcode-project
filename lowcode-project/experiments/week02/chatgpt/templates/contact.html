@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+</head>
+<body>
+    <h1>Contact Us</h1>
+
+    <form method="POST" action="/contact" novalidate>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"
+               value="{{ name }}">
+        {% if errors.name %}
+            <p style="color: red;">{{ errors.name }}</p>
+        {% endif %}
+
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"
+               value="{{ email }}">
+        {% if errors.email %}
+            <p style="color: red;">{{ errors.email }}</p>
+        {% endif %}
+
+        <br>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message">{{ message }}</textarea>
+        {% if errors.message %}
+            <p style="color: red;">{{ errors.message }}</p>
+        {% endif %}
+
+        <br>
+        <button type="submit">Send Message</button>
+    </form>
+</body>
+</html>
